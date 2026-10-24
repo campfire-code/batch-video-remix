@@ -1,0 +1,14 @@
+{
+  "id": "c05",
+  "slug": "batch-video-remix",
+  "name": "批量混剪工厂",
+  "version": "0.1.0",
+  "repo": "campfire-code/batch-video-remix",
+  "license": "MIT",
+  "ui": {
+    "layout": "e",
+    "palette": "orange"
+  },
+  "upstream": null,
+  "ffmpeg": true
+}
