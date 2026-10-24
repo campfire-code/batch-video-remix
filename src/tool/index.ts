@@ -8,6 +8,7 @@ import {
   type Clip, type RatioKey, type ResKey, type SubPos,
 } from './core';
 import { renderSubtitlePng } from './subtitleImage';
+import { Empty, ResultBody } from './view';
 
 async function removeQuiet(path: string) {
   try {
@@ -34,10 +35,12 @@ const tool: ToolDef = {
   type: 'media',
   icon: Shapes,
   mode: 'batch',
-  resultView: 'list',
+  resultView: 'cards',
+  Empty,
+  ResultBody,
   concurrency: 3,
   accept: { label: '素材视频', extensions: VIDEO_EXTS },
-  check: (item) => (VIDEO_EXTS.includes(ext(item.name)) ? null : '不是支持的视频格式（支持 MP4、MOV、M4V、MKV、AVI、WEBM）'),
+  check: (item) => (VIDEO_EXTS.includes(ext(item.name)) ? null : '不是支持的视频格式，请换成 MP4、MOV 或 WebM'),
   params: [
     { key: 'count', label: '生成条数', type: 'number', default: 5, min: 1, max: 200, step: 1, unit: '条', help: '同一批里素材组合不重复；组合数不足时只生成能生成的条数并提示' },
     { key: 'total', label: '每条目标时长', type: 'number', default: 15, min: 3, max: 120, step: 1, unit: '秒' },

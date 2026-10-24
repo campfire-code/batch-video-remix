@@ -35,7 +35,7 @@ export const rows = (state: string): Row[] =>
       item: { id: `v${i}`, name, path: thumb(hue, i), size: 600_000 + i * 90_000 },
       status,
       progress: status === 'run' ? 0.5 : status === 'ok' ? 1 : 0,
-      result: status === 'ok' ? { summary: `${group} · ${secs.toFixed(1)} 秒${name.includes('无音轨') ? ' · 无音轨' : ''}` } : undefined,
+      result: status === 'ok' ? { data: { path: `/示例/${name}`, duration: secs, hasAudio: !name.includes('无音轨') }, summary: `${group} · ${secs.toFixed(1)} 秒${name.includes('无音轨') ? ' · 无音轨' : ''}` } : undefined,
     };
   });
 
